@@ -10,7 +10,14 @@ class HistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-
+        setSupportActionBar(binding?.toolbarHistory)
+        if(supportActionBar != null){
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = "HISTORY"
+        }
+        binding?.toolbarHistory?.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
     }
 }
