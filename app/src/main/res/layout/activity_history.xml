@@ -15,4 +15,38 @@
         android:theme="@style/ToolbarTheme"
         />
 
+    <TextView
+        android:id="@+id/tvExerciseCompleted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EXERCISE COMPLETED"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarHistory"
+        tools:visibility="visible"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvExerciseHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvExerciseCompleted"/>
+
+    <TextView
+        android:id="@+id/tvNoRecordsFound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NO RECORDS FOUND !!"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarHistory" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
