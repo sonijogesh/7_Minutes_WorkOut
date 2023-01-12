@@ -2,7 +2,11 @@ package com.example.a7minutesworkout
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.lifecycle.lifecycleScope
 import com.example.a7minutesworkout.databinding.ActivityHistoryBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class HistoryActivity : AppCompatActivity() {
     private var binding : ActivityHistoryBinding? = null
@@ -18,6 +22,17 @@ class HistoryActivity : AppCompatActivity() {
         binding?.toolbarHistory?.setNavigationOnClickListener {
             onBackPressed()
         }
+        val dao = (application as HistoryApp).db.historyDao()
+        getAllCompletedDates(dao)
 
+    }
+    private fun getAllCompletedDates(historyDao : HistoryDao){
+        lifecycleScope.launch {
+            historyDao.fetchAllDates().collect{
+                for (i in it){
+                    Log.e("Dates",""+i)
+                }
+            }
+        }
     }
 }
